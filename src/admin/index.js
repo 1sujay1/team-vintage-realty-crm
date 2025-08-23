@@ -41,23 +41,23 @@ const adminOptions = {
           icon: "User", // 👈 Optional icon from AdminJS icons
         },
         properties: {
-//          isDisabled: ({ currentAdmin }) => {
-//   console.log("currentAdmin:", currentAdmin); // debug
-//   if (!currentAdmin) return true; // disable if not logged in
-//   return currentAdmin.email !== adminEmail;
-// },
-//           email: {
-//             isDisabled: ({ currentAdmin }) =>
-//               currentAdmin?.email !== adminEmail,
-//           },
-//           phone: {
-//             isDisabled: ({ currentAdmin }) =>
-//               currentAdmin?.email !== adminEmail,
-//           },
-//           source: {
-//             isDisabled: ({ currentAdmin }) =>
-//               currentAdmin?.email !== adminEmail,
-//           },
+          //          isDisabled: ({ currentAdmin }) => {
+          //   console.log("currentAdmin:", currentAdmin); // debug
+          //   if (!currentAdmin) return true; // disable if not logged in
+          //   return currentAdmin.email !== adminEmail;
+          // },
+          //           email: {
+          //             isDisabled: ({ currentAdmin }) =>
+          //               currentAdmin?.email !== adminEmail,
+          //           },
+          //           phone: {
+          //             isDisabled: ({ currentAdmin }) =>
+          //               currentAdmin?.email !== adminEmail,
+          //           },
+          //           source: {
+          //             isDisabled: ({ currentAdmin }) =>
+          //               currentAdmin?.email !== adminEmail,
+          //           },
         },
         listProperties: [
           "name",
@@ -122,8 +122,11 @@ const adminOptions = {
           edit: {
             isAccessible: ({ currentAdmin }) => !!currentAdmin, // everyone logged-in can see edit
             before: async (request, context) => {
-              console.log("context.currentAdmin.email",context.currentAdmin.email)
-              console.log("adminEmail",adminEmail)
+              console.log(
+                "context.currentAdmin.email",
+                context.currentAdmin.email
+              );
+              console.log("adminEmail", adminEmail);
               if (context.currentAdmin.email !== adminEmail) {
                 const restricted = ["name", "email", "phone", "source"];
                 restricted.forEach((field) => delete request.payload?.[field]);
@@ -153,7 +156,7 @@ const adminOptions = {
   ],
   rootPath: "/admin",
   branding: {
-    companyName: "RealEstate CRM",
+    companyName: "Team Vintage Realty - CRM",
     softwareBrothers: false,
     logo: false,
   },
