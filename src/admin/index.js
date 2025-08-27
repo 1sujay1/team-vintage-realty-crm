@@ -86,6 +86,7 @@ const adminOptions = {
           "visitDate",
           "project",
           "source",
+          "secondaryPhone",
         ],
         showProperties: [
           "name",
@@ -99,6 +100,7 @@ const adminOptions = {
           "createdAt",
           "updatedAt",
           "source",
+          "secondaryPhone",
         ],
         sort: {
           sortBy: "visitDate",
@@ -207,6 +209,7 @@ const adminOptions = {
           "visitDate",
           "project",
           "source",
+          "secondaryPhone",
         ],
         showProperties: [
           "name",
@@ -220,6 +223,7 @@ const adminOptions = {
           "createdAt",
           "updatedAt",
           "source",
+          "secondaryPhone",
         ],
         sort: {
           sortBy: "visitDate",
