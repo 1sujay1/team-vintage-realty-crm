@@ -50,6 +50,36 @@ const Clients = {
     receiverEmail: process.env.SATTVA_VASANTA_RECEIVER_EMAIL,
     displayEmail: "projects@sattva-vasantaskye.com",
   },
+  SATTVA_LAVITA: {
+    name: "Sattva Lavita",
+    user: process.env.SATTVA_VASANTA_NODE_MAILER_EMAIL,
+    pass: process.env.SATTVA_VASANTA_NODE_MAILER_PASSWORD,
+    ccMail: process.env.SATTVA_VASANTA_CC_EMAILS
+      ? JSON.parse(process.env.SATTVA_VASANTA_CC_EMAILS)
+      : [],
+    receiverEmail: process.env.SATTVA_VASANTA_RECEIVER_EMAIL,
+    displayEmail: "projects@sattva-lavita.com",
+  },
+  SATTVA_PARK_CUBIX: {
+    name: "Sattva Park Cubix",
+    user: process.env.SATTVA_VASANTA_NODE_MAILER_EMAIL,
+    pass: process.env.SATTVA_VASANTA_NODE_MAILER_PASSWORD,
+    ccMail: process.env.SATTVA_VASANTA_CC_EMAILS
+      ? JSON.parse(process.env.SATTVA_VASANTA_CC_EMAILS)
+      : [],
+    receiverEmail: process.env.SATTVA_VASANTA_RECEIVER_EMAIL,
+    displayEmail: "projects@sattva-park-cubix.com",
+  },
+  TEAM_VINTAGE_REALTY: {
+    name: "Team Vintage Realty",
+    user: process.env.SATTVA_VASANTA_NODE_MAILER_EMAIL,
+    pass: process.env.SATTVA_VASANTA_NODE_MAILER_PASSWORD,
+    ccMail: process.env.SATTVA_VASANTA_CC_EMAILS
+      ? JSON.parse(process.env.SATTVA_VASANTA_CC_EMAILS)
+      : [],
+    receiverEmail: process.env.SATTVA_VASANTA_RECEIVER_EMAIL,
+    displayEmail: "projects@team-vintage-realty.com",
+  },
 };
 export const sendClientContactMail = async ({
   name,
@@ -59,7 +89,10 @@ export const sendClientContactMail = async ({
   project,
   secondaryPhone,
 }) => {
-  const currentClient = Clients[project];
+  let currentClient = Clients[project];
+  if (!currentClient) {
+    currentClient = Clients["TEAM_VINTAGE_REALTY"];
+  }
   const transporter = nodemailer.createTransport({
     service: "gmail", // or configure host/port manually
     auth: {
