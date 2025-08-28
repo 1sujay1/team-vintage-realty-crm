@@ -70,6 +70,16 @@ const Clients = {
     receiverEmail: process.env.SATTVA_VASANTA_RECEIVER_EMAIL,
     displayEmail: "projects@sattva-park-cubix.com",
   },
+  VAJRAM_VIVERA: {
+    name: "Vajram Vivera Groups",
+    user: process.env.SATTVA_VASANTA_NODE_MAILER_EMAIL,
+    pass: process.env.SATTVA_VASANTA_NODE_MAILER_PASSWORD,
+    ccMail: process.env.SATTVA_VASANTA_CC_EMAILS
+      ? JSON.parse(process.env.SATTVA_VASANTA_CC_EMAILS)
+      : [],
+    receiverEmail: process.env.SATTVA_VASANTA_RECEIVER_EMAIL,
+    displayEmail: "projects@vajramviveragroups.com",
+  },
   TEAM_VINTAGE_REALTY: {
     name: "Team Vintage Realty",
     user: process.env.SATTVA_VASANTA_NODE_MAILER_EMAIL,
